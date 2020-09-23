@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "189814815054",
+    "firebase_url": "https://sketchapp-9a96d.firebaseio.com",
+    "project_id": "sketchapp-9a96d",
+    "storage_bucket": "sketchapp-9a96d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:189814815054:android:e10b5fbb282796c55b461f",
+        "android_client_info": {
+          "package_name": "com.example.sketchapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "189814815054-9sloiel3s8e9gnodu1i4m2b7tpqi0kla.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCcrVlVU7ojW6QsyaYFzdnNFG1ocz9y5T0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "189814815054-9sloiel3s8e9gnodu1i4m2b7tpqi0kla.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
