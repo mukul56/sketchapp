@@ -9,7 +9,9 @@ import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
+import java.io.FileNotFoundException;
 import java.util.Stack;
 
 public class MainActivity extends AppCompatActivity {
@@ -87,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                myCanvas.saveImage();
             }
         });
 
@@ -107,6 +109,8 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
+
+
 
 
 

@@ -1,21 +1,33 @@
 package com.example.sketchapp;
 
+import android.content.ContentResolver;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
-import android.graphics.PorterDuff;
-import android.graphics.PorterDuffXfermode;
+
+import android.os.Environment;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.webkit.MimeTypeMap;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
+import com.example.sketchapp.authentication.uploadImage;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 
 
@@ -178,16 +190,68 @@ public class MyCanvas extends View {
     public void setErase(boolean isErase){
 
         erase = isErase;
-/*        erase=isErase;
-        if(erase) {
-            //      drawPaint.setStyle(Paint.Style.FILL);
-            mPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
-        } else {
-            mPaint.setStyle(Paint.Style.STROKE);
-            mPaint.setColor(DEFAULT_BG_COLOR);
-            mPaint.setXfermode(null);
-        }*/
-
     }
 
-}
+
+    public void saveImage(){
+
+        uploadImage uploadImage = new uploadImage(mBitmap);
+    }
+
+
+/*
+
+    public void saveImage1() {
+
+        int count = 0;
+
+        File sdDirectory = Environment.getExternalStorageDirectory();
+        File subDirectory = new File(sdDirectory.toString() + "/Pictures/Paint");
+
+        if (subDirectory.exists()) {
+
+            File[] existing = subDirectory.listFiles();
+
+            for (File file : existing) {
+
+                if (file.getName().endsWith(".jpg") || file.getName().endsWith(".png")) {
+
+                    count++;
+
+                }
+
+            }
+
+        } else {
+
+            subDirectory.mkdir();
+
+        }
+
+
+            File image = new File(subDirectory, "/drawing_" + (count + 1) + ".png");
+            FileOutputStream fileOutputStream;
+
+            try {
+
+                fileOutputStream = new FileOutputStream(image);
+
+                mBitmap.compress(Bitmap.CompressFormat.PNG, 100, fileOutputStream);
+                uploadImage uploadImage = new uploadImage(mBitmap,image);
+
+                fileOutputStream.flush();
+                fileOutputStream.close();
+
+                Toast.makeText(getContext(), "saved", Toast.LENGTH_LONG).show();
+
+
+
+            } catch (IOException e) {
+
+                Log.i("errr","erro") ;
+            }
+
+        }
+*/
+
+    }
