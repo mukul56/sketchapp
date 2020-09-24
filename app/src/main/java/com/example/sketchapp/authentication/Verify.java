@@ -18,6 +18,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.sketchapp.MainActivity;
 import com.example.sketchapp.R;
+import com.google.android.gms.common.internal.Objects;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.gms.tasks.TaskExecutors;
@@ -149,8 +150,10 @@ public class Verify extends AppCompatActivity {
                             startActivity(intent);
 
                         } else {
+                            progressBar.setVisibility(View.GONE);
+                            Toast.makeText(Verify.this,"some error at server",Toast.LENGTH_SHORT).show();
 
-                            //verification unsuccessful.. display an error message
+                           /* //verification unsuccessful.. display an error message
 
                             String message = "Somthing is wrong, we will fix it soon...";
 
@@ -165,7 +168,7 @@ public class Verify extends AppCompatActivity {
 
                                 }
                             });
-                            snackbar.show();
+                            snackbar.show();*/
                         }
                     }
                 });
