@@ -15,9 +15,11 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 import com.example.sketchapp.MainActivity;
 import com.example.sketchapp.R;
+import com.example.sketchapp.util.sharePrefer;
 import com.google.android.gms.common.internal.Objects;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -145,9 +147,12 @@ public class Verify extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             //verification successful we will start the profile activity
-                            Intent intent = new Intent(Verify.this, MainActivity.class);
+                            Intent intent = new Intent(Verify.this, GeneralInfo.class);
                             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                            startActivity(intent);
+
+
+
+                           startActivity(intent);
 
                         } else {
                             progressBar.setVisibility(View.GONE);
@@ -174,4 +179,9 @@ public class Verify extends AppCompatActivity {
                 });
     }
 
+    @Override
+    protected void onStop() {
+        finish();
+        super.onStop();
+    }
 }

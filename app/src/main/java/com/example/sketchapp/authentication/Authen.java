@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.sketchapp.R;
+import com.example.sketchapp.util.sharePrefer;
 
 public class Authen extends AppCompatActivity {
     private EditText editTextMobile;
@@ -29,6 +30,9 @@ public class Authen extends AppCompatActivity {
                     editTextMobile.requestFocus();
                     return;
                 }
+                sharePrefer s = new sharePrefer(Authen.this);
+                s.save(mobile);
+
 
                 Intent intent = new Intent(Authen.this, Verify.class);
                 intent.putExtra("mobile", mobile);
@@ -36,5 +40,11 @@ public class Authen extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    protected void onStop() {
+        finish();
+        super.onStop();
     }
 }
